@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We will rock you!</title>
+    <link rel="icon" href="./favicon.svg" type="image/icon type">
+
+</head>
+<h1>NI marks</h1>
+<table>
+    <tr>
+        <th>File Number</th>
+        <th>Name of file</th>
+    </tr>
+    <% for (var i=0; i < list.length; i++) { %>
+        <tr>
+            <td>
+                <%= i %>
+            </td>
+            <td>
+                <a href="/play?name=<%= list[i] %>">
+                    <%= list[i] %>
+                </a>
+            </td>
+        </tr>
+        <% } %>
+</table>
+
+<body>
+
+</body>
+
+</html>
