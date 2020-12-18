@@ -1,0 +1,30 @@
+{
+  "name": "file-server",
+  "version": "0.1.1",
+  "description": "File server to view files on browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tatticoder/file-server.git"
+  },
+  "keywords": [
+    "file",
+    "server",
+    "stream",
+    "pipe"
+  ],
+  "author": "naman singhal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tatticoder/file-server/issues"
+  },
+  "homepage": "https://github.com/tatticoder/file-server#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "0.0.1-security"
+  }
+}
