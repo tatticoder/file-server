@@ -6,10 +6,10 @@ app.use(express.static(__dirname + "/public"));
 //disable express headers
 app.disable("x-powered-by");
 //replace with path of folder you want to read
-const directoryPath = "./";
+const directoryPath = "/media/stardust/moremovies";
 app.get("/", function (req, res) {
   //for subfolders in this folder
-  let requestedPath = directoryPath + (req.query.name || "");
+  let requestedPath = req.query.name || directoryPath;
   console.log("going ot scan :" + requestedPath);
   fs.readdir(requestedPath, function (err, files) {
     //handling error
@@ -24,7 +24,7 @@ app.get("/play", (req, res) => {
   const resPath = req.query.path + req.query.name;
   if (fs.lstatSync(resPath).isDirectory()) {
     console.log("User requested directory :" + resPath);
-    res.redirect(`/?name=${req.query.name}`);
+    res.redirect(`/?name=${resPath}`);
   } else {
     //currently only for videos, more formats will be supported in future
     console.log("User requested file :" + resPath);
@@ -38,7 +38,6 @@ app.get("/video", function (req, res) {
     res.status(400).send("Requires Range header");
   }
   const videoPath = req.query.name;
-  console.log("playing :" + videoPath);
   try {
     const videoSize = fs.statSync(videoPath).size;
     // Parse Range
