@@ -6,35 +6,29 @@ app.use(express.static(__dirname + "/public"));
 //disable express headers
 app.disable("x-powered-by");
 //replace with path of folder you want to read
-const directoryPath = "/media/stardust/songs/epicfiles/porn/";
+const directoryPath = "./";
 app.get("/", function (req, res) {
-  //passsing directoryPath and callback function
-  if (req.query.name) {
-    console.log("PLease scan :" + req.query.name);
-    //for subfolders in this folder
-    var directoryPath2 = directoryPath + req.query.name;
-  } else {
-    var directoryPath2 = directoryPath;
-  }
-  fs.readdir(directoryPath2, function (err, files) {
+  //for subfolders in this folder
+  let requestedPath = directoryPath + (req.query.name || "");
+  console.log("going ot scan :" + requestedPath);
+  fs.readdir(requestedPath, function (err, files) {
     //handling error
     if (err) {
       res.render("error", { err: JSON.stringify(err) });
-      return console.log("Unable to scan directory: " + err);
+      return console.error("Unable to scan directory: " + err);
     }
-    res.render("index", { list: files });
+    res.render("index", { list: files, base: requestedPath });
   });
 });
 app.get("/play", (req, res) => {
-  console.log("Name of file is " + req.query.name);
-
-  if (fs.lstatSync(directoryPath + req.query.name).isDirectory()) {
-    console.log("it is a directory :" + req.query.name);
+  const resPath = req.query.path + req.query.name;
+  if (fs.lstatSync(resPath).isDirectory()) {
+    console.log("User requested directory :" + resPath);
     res.redirect(`/?name=${req.query.name}`);
   } else {
     //currently only for videos, more formats will be supported in future
-    console.log("it is a directory :" + req.query.name);
-    res.render("play", { file: req.query.name });
+    console.log("User requested file :" + resPath);
+    res.render("play", { file: resPath });
   }
 });
 app.get("/video", function (req, res) {
@@ -43,9 +37,10 @@ app.get("/video", function (req, res) {
   if (!range) {
     res.status(400).send("Requires Range header");
   }
-  const videoPath = directoryPath + req.query.name;
-  const videoSize = fs.statSync(videoPath).size;
+  const videoPath = req.query.name;
+  console.log("playing :" + videoPath);
   try {
+    const videoSize = fs.statSync(videoPath).size;
     // Parse Range
     // 1MB or 1% of video whicever is larger
     const CHUNK_SIZE =
