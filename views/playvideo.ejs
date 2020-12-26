@@ -9,11 +9,13 @@
 </head>
 
 <body>
-    <h3>
-        <%=file%>
-    </h3>
-    <video id="videoPlayer" width="100%" controls loop muted="muted" autoplay>
+    <h6>
+        Playing file: <%=file%>
+    </h6>
+    <video id="videoPlayer" width="100%" max-height="50vh" preload="metadata" controls autoPictureInPicture="true" loop
+        muted="muted" autoplay>
         <source src="/video?name=<%= file %>" type="video/mp4" />
+        <track label="English" kind="subtitles" srclang="en" src="subs.srt" default>
     </video>
     <button id="view-fullscreen" onclick="makefullscreen()">Fullscreen</button>
 </body>

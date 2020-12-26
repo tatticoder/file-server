@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
+const port = process.env.PORT || 8000;
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 //disable express headers
 app.disable("x-powered-by");
 //replace with path of folder you want to read
-const directoryPath = "/media/stardust/moremovies";
+// const directoryPath = "E:\\program files\\lonley";
+const directoryPath = "/media/stardust/movies";
 app.get("/", function (req, res) {
   //for subfolders in this folder
   let requestedPath = req.query.name || directoryPath;
@@ -27,10 +29,19 @@ app.get("/play", (req, res) => {
     res.redirect(`/?name=${resPath}`);
   } else {
     //currently only for videos, more formats will be supported in future
-    console.log("User requested file :" + resPath);
-    res.render("play", { file: resPath });
+    console.log("User requested file :", resPath);
+    res.render("playvideo", { file: resPath });
   }
 });
+app.get("/getFile",(req,res)=>{
+  try {
+    console.log("User requested file :",req.query.name);
+    res.sendFile(req.query.name);
+  } catch (err) {
+    console.error(err)
+    res.render("error", { err: JSON.stringify(err) });
+  }
+})
 app.get("/video", function (req, res) {
   // Ensure there is a range given for the video
   const range = req.headers.range;
@@ -68,6 +79,6 @@ app.get("/video", function (req, res) {
   }
 });
 
-app.listen(8000, function () {
-  console.log("Listening on port 8000!");
+app.listen(port, function () {
+  console.log(`Listening on port ${port}!!!`);
 });
