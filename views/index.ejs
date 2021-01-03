@@ -5,31 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>We will rock you!</title>
-    <link rel="icon" href="./favicon.svg" type="image/icon type">
-
+    <link rel="icon" href="./favicon.svg" type="image/icon">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<table>
-    <thead>
-        <tr>
-            <th>File Number</th>
-            <th>Name of file</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% for (var i=0; i < list.length; i++) { %>
-            <tr>
-                <td>
-                    <%= i+1 %>
-                </td>
-                <td>
-                    <a href="/play?name=/<%=list[i]%>&path=<%=base%>">
-                        <%= list[i] %>
-                    </a>
-                </td>
-            </tr>
-            <% } %>
-    </tbody>
-</table>
+<h3>Name of file</h3>
+<ol>
+    <% for (var i=0; i < list.length; i++) { %>
+        <li>
+            <a href="/play?name=/<%=list[i]%>&path=<%=base%>">
+                <%= list[i] %>
+            </a>
+        </li>
+        <% } %>
+</ol>
 
 <body>
 

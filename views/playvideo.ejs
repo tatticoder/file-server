@@ -2,53 +2,22 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stream <%=file%>
-    </title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stream <%=file%>
+  </title>
+  <link rel="icon" href="./favicon.svg" type="image/icon">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <h6>
-        Playing file: <%=file%>
-    </h6>
-    <video id="videoPlayer" width="100%" max-height="50vh" preload="metadata" controls autoPictureInPicture="true" loop
-        muted="muted" autoplay>
-        <source src="/video?name=<%= file %>" type="video/mp4" />
-        <track label="English" kind="subtitles" srclang="en" src="subs.srt" default>
-    </video>
-    <button id="view-fullscreen" onclick="makefullscreen()">Fullscreen</button>
+  <h6>
+    Playing file: <%=file%>
+  </h6>
+  <video id="videoPlayer" width="100%" max-height="50vh" preload="metadata" controls autoPictureInPicture="true" loop
+    muted="muted" autoplay>
+    <source src="/video?name=<%= file %>" type="video/mp4" />
+  </video>
 </body>
-<script>
-    const event = new Event('build');
-    const elem = document.getElementById("videoPlayer");
-    // elem.addEventListener('build', makefullscreen, false);
-    function makefullscreen() {
-
-        console.log(elem);
-        if (!document.fullscreenElement) {
-            elem.requestFullscreen().catch(err => {
-                alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-            });
-        } else {
-            document.exitFullscreen();
-        }
-        // const player = document.getElementById("videoPlayer")
-        // console.log(player);
-        // if (player.requestFullscreen) {
-        //     player.requestFullscreen();
-        // } else if (player.mozRequestFullScreen) {
-        //     /* Firefox */
-        //     player.mozRequestFullScreen();
-        // } else if (player.webkitRequestFullscreen) {
-        //     /* Chrome, Safari and Opera */
-        //     player.webkitRequestFullscreen();
-        // } else if (player.msRequestFullscreen) {
-        //     /* IE/Edge */
-        //     player.msRequestFullscreen();
-        // }
-    }
-    // elem.dispatchEvent(event);
-</script>
 
 </html>
