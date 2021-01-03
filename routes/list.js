@@ -1,6 +1,6 @@
 const fs = require("fs");
 //replace with path of folder you want to read
-const directoryPath = "/media/stardust/movies";
+const directoryPath = "/media/stardust/songs/dhup_chik";
 exports.listDir = function (req, res) {
   //for subfolders in this folder
   let requestedPath = req.query.name || directoryPath;
