@@ -1,3 +1,4 @@
+const fs = require("fs");
 exports.send = (req, res) => {
   const resPath = req.query.path + req.query.name;
   if (fs.lstatSync(resPath).isDirectory()) {
