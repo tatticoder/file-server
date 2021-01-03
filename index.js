@@ -19,6 +19,8 @@ app.get("/download", require("./routes/download").download);
 // user wants to play this video
 app.get("/video", require("./routes/video").playvid);
 
+app.get("/img", require("./routes/imggallery").showGal);
+
 // user is lost
 app.use((req, res, next) => {
   res.status(404).render("error", { err: req.url + " not found" });
