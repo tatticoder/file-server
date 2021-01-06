@@ -5,8 +5,8 @@ To contribute to file-server, follow these steps:
 - Create a new issue or pick an existing issue and ask for it to be assigned to you
 - Wait for it to be assigned to you
 - Fork this repository.
-- Create a branch: git checkout -b <branch_name>.
-- Make your changes and commit them: git commit -m '<commit_message>'
+- Create a branch: `git checkout -b <branch_name>`
+- Make your changes and commit them: `git commit -m '<commit_message>'`
 - Push to the original branch
 - Create the pull request to dev branch and mention the issue number which was assigned to you.
 
