@@ -9,7 +9,7 @@ Currently this app is in development and you should expect breaking changes with
 - [Prerequisites](#Prerequisites)
 - [Installing file-server](#Installing-file-server)
 - [Using file-server](#Using-file-server)
-- [How to contribute?](#How-to-contribute?)
+- [How to contribute?](#How-to-contribute)
 - [Report a bug](#Report-a-bug)
 - [Requesting a feature](#Requesting-a-feature)
 - [Contact](#Contact)
@@ -41,10 +41,10 @@ npm run start
 You should get output like
 ```
 ```
-Open the URL on localhost with port number mentioned or view on other device in your LAN by using private ip address ( run `ip a` in linux to get your private IP) and prot number. You can change port used by setting up environment variables 
+Open the URL on localhost with port number mentioned or view on other device in your LAN by using private ip address ( run `ip a` in linux to get your private IP) and port number. You can change port used by setting up environment variables default is 8000.
 
 ## How to Contribute?
-You can browse through existing issues or open a new issue to contribute to this project.
+You can browse through existing issues or open a new issue  and submit a PR to fix that issue.
 For detailed info read [How to contribute?](./CONTRIBUTING.md)
 
 ## Report a bug
