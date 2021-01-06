@@ -1,23 +1,29 @@
 # file-server
 
-Project name is a `<utility/tool/feature>` that allows `<insert_target_audience>` to do `<action/task_it_does>`.
+file-server is a usier friendly file server that allows people who are less familiar with technology and not comfortable with setting up complex media servers to make a local sharable server which can be accessed by anyone in the network over any browser and stream or even download videos and songs from server.
 
-Additional line of information text about what the project does. Your introduction should be around 2 or 3 sentences. Don't go overboard, people won't read it.
+## Warning!
+Currently this app is in development and you should expect breaking changes with each update even if the version number might not indicate that which might not be backwards compatible.
 
 ## Table of Contents
-- a
-- b
-- c
+- [Prerequisites](#Prerequisites)
+- [Installing file-server](#Installing-file-server)
+- [Using file-server](#Using-file-server)
+- [How to contribute?](#How-to-contribute?)
+- [Report a bug](#Report-a-bug)
+- [Requesting a feature](#Requesting-a-feature)
+- [Contact](#Contact)
+- [License](#License)
 
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 * Installed Nodejs v12 onwards on your system
-* your system runs on Linux environment (Support for Windows will be added soon!)
+* Your system runs on Linux environment (Support for Windows will be added soon!)
 
 ## Installing file-server
 
-To install file-server, follow these steps:
+To install file-server, run following commands:
 
 Linux and macOS:
 ```
@@ -25,27 +31,21 @@ git clone https://github.com/tatticoder/file-server.git
 cd file-server
 npm i
 ```
-
 ## Using file-server
 
-To use file-server, run following command in terminal:
-
+To use file-server, change the value of `directoryPath` variable in [/routes/list.js](./routes/list.js) on line 3 to path of folder you want to host.
+Then run following command in terminal (in root of project folder):
 ```
 npm run start
 ```
-you will get output like
+You should get output like
 ```
 ```
-you can change port used by setting up environment variables
-
-
-## Warning!
-Currently this app is in development and you should expect breaking changes with each update which might not be backwards compatible even if the version number might not indicate that.
-
-Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+Open the URL on localhost with port number mentioned or view on other device in your LAN by using private ip address ( run `ip a` in linux to get your private IP) and prot number. You can change port used by setting up environment variables 
 
 ## How to Contribute?
-You can browse through existing issues or open a new issue to contribute to this project. For detailed info read `<linkto file>`
+You can browse through existing issues or open a new issue to contribute to this project.
+For detailed info read [How to contribute?](./CONTRIBUTING.md)
 
 ## Report a bug
 If you encountered some problem when running this app, check if issue already exists, if not open a new issue in issues tab and try to explain your problem in fewer than 100 words. Mention steps to reproduce problem if applicable. 
@@ -58,6 +58,5 @@ If you would like to see some new feature added to this please create a new issu
 This project is maintained by [@tatticoder](https://github.com/tatticoder) 🐛
 
 ## License
-<!--- If you're not sure which open license to use see https://choosealicense.com/--->
 
-This project uses the following license: [<license_name>](<link>).
+This project uses the [MIT License](./LICENSE).
