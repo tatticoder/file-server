@@ -40,6 +40,9 @@ npm run start
 ```
 You should get output like
 ```
+> node index.js
+
+Listening on port 8000!!!
 ```
 Open the URL on localhost with port number mentioned or view on other device in your LAN by using private ip address ( run `ip a` in linux to get your private IP) and port number. You can change port used by setting up environment variables default is 8000.
 
