@@ -10,16 +10,16 @@ exports.send = (req, res) => {
       const ext = path.extname(resPath);
       if ([".mp4", ".mkv"].includes(ext)) {
         res.render("playvideo", { file: resPath });
-      } else if ([".mp3", ".flac", ".m4a"].includes(ext)) {
+      } else if ([".mp3", ".flac", ".m4a", ".MP4"].includes(ext)) {
         res.render("playsong", { file: resPath });
       } else if (
-        [".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp"].includes(ext)
+        [".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp", ".JPG"].includes(ext)
       ) {
         res.render("showimage", { file: resPath });
       } else if (".pdf" == ext) {
         res.render("document", { file: resPath });
       } else {
-        res.render("error", { err: ext + " is not supported" });
+        res.render("notsupported", { ext: ext, file: resPath });
       }
     }
   } catch (error) {
